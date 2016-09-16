@@ -1,0 +1,2 @@
+# rpmbuild-tenshi
+centos5
