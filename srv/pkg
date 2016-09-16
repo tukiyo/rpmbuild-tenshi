@@ -1,5 +1,8 @@
 cd /srv
 tar xzf /home/builder/rpm/tenshi-0.15.tar.gz 
 cd tenshi-0.15
-sudo rpmbuild -bb tenshi.redhat-spec
-sudo rpmbuild --target=i386 -bb tenshi.redhat-spec
+# [rpmbuildで自動で依存関係を付与されるのを回避 - Qiita](http://qiita.com/tukiyo3/items/b65b9ba323570d94eacd)
+sed -i '1s/^/AutoReqProv:       no\n/' tenshi.redhat-spec
+sudo rpmbuild --target=noarch -bb tenshi.redhat-spec
+#sudo rpmbuild -bb tenshi.redhat-spec
+#sudo rpmbuild --target=i386 -bb tenshi.redhat-spec
