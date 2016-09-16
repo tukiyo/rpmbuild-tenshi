@@ -1,0 +1,5 @@
+cd /srv
+tar xzf /home/builder/rpm/tenshi-0.15.tar.gz 
+cd tenshi-0.15
+sudo rpmbuild -bb tenshi.redhat-spec
+sudo rpmbuild --target=i386 -bb tenshi.redhat-spec
